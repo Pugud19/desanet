@@ -49,5 +49,15 @@ class Member{
             $mr = $this->koneksi->prepare($sql);
             $mr->execute($data);
         }
+            // Read Data From Database for Login
+    public function cekLogin($data){
+        $sql = "SELECT * FROM member WHERE username = ? AND password = SHA1(MD5(?))";
+        // prepare statement PDO
+        $mr = $this->koneksi->prepare($sql);
+        $mr->execute($data);
+        $mb = $mr->fetch();
+        return $mb;
+        
+    }
 }
 ?>

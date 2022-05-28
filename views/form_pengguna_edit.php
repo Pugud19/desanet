@@ -6,7 +6,9 @@ $obj = new Member();
 // panggil fungsi detail
 $data = $obj->getId($id);
 
-
+ 
+if (isset($user)) {
+  if ($role != 'Pengguna') {
 ?>
 <div class="col-md-10 grid-margin stretch-card">
               <div class="card">
@@ -60,3 +62,4 @@ $data = $obj->getId($id);
                 </div>
               </div>
 </div>
+<?php }} ?>

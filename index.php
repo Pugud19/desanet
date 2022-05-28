@@ -1,4 +1,7 @@
 <?php 
+session_start(); // memulai session
+$user = $_SESSION['member'];
+$role = $user['role'];
 require_once 'koneksi_db.php';
 
 // include file fungsi
@@ -35,7 +38,7 @@ $hal = $_GET['hal'];
     <?php include_once 'views/components/left_sidebar.php' ?>
     <!-- left sidebar end -->
     <!----- awal area link internal ----->
-    <?php 
+    <?php
     if($hal == 'home'){
       include_once 'views/home.php';
     }
@@ -44,7 +47,8 @@ $hal = $_GET['hal'];
     } else {
         include_once 'views/home.php';
     }
-    ?>
+
+  ?>
     <!----- akhir area link internal ----->
     </div>
     <!-- main end -->

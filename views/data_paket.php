@@ -35,7 +35,8 @@
                           <input type="hidden" name="idh" value="<?= $d['id'] ?>">
                           </form>
                             </td> 
-                        </tr>
+                          <td><a href="index.php?hal=pembayaran"  class="btn btn-secondary">Beli</a></td>
+                          </tr>
                         <?php } ?>
                       </tbody>
                     </table>

@@ -1,3 +1,7 @@
+<?php 
+if(isset($user)){
+  if($role != 'Pengguna'){
+?>
 <div class="tab-content content-wrapper" id="setting-content">
           <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
             <div class="add-items d-flex px-3 mb-0">
@@ -54,5 +58,5 @@
             </div>
           </div>
           <!-- To do section tab ends -->
-
         </div>
+<?php }} ?>

@@ -1,4 +1,8 @@
-<div>
+<?php 
+if(isset($user)){
+  if($role != 'Pengguna'){
+?>
+        <div>
             <div class="col-md-12  stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -55,3 +59,4 @@
               </div>
             </div>
         </div>
+<?php }} ?>

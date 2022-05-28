@@ -6,7 +6,8 @@ $obj = new Internet();
 // panggil fungsi detail
 $data = $obj->getData($id);
 
-
+if (isset($user)) {
+  if ($role != 'Pengguna') {
 ?>
 <div class="col-md-10 grid-margin stretch-card">
               <div class="card">
@@ -52,3 +53,4 @@ $data = $obj->getData($id);
                 </div>
               </div>
 </div>
+<?php }} ?>

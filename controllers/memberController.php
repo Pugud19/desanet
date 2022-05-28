@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start(); 
 require_once '../koneksi_db.php';
 require_once '../models/member.php';
 
@@ -8,27 +9,26 @@ require_once '../models/member.php';
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $role = $_POST['role'];
+    $rl = $_POST['role'];
+
     // tombol 
     $tombol = $_POST['proses'];
 
-    // $action = [
-    //     $fullname,
-    //     $username,
-    //     $email,
-    //     $password,
-    //     $role
-    // ];
+    $action = [
+        $username,
+        $password
+    ];
     $data = [
         // $user,
         $fullname,
         $username,
         $email,
         $password,
-        $role
+        $rl
     ];
 
     $obj = new Member();
+    $mb = $obj->cekLogin($action);
     $obj->getMember();
     $obj->getAll();
     switch ($tombol) {
@@ -45,6 +45,13 @@ require_once '../models/member.php';
         header('location:../index.php?hal=data_pengguna');
          break;
     }
-    header('location:../index.php?hal=data_pengguna');
+        // logic login member
+        if (!empty($mb)) {
+            $_SESSION['member'] = $mb;
+            header('location:index.php?hal=home');
+        }else {       
+            header('location:../gagal_login.php');
+        }
+    
 
 ?>

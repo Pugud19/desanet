@@ -1,5 +1,7 @@
-<div class="main-panel">
-<div class="content-wrapper">
+<?php
+if(isset($user)){
+   ?>
+<div class="main-panel content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
@@ -428,5 +430,10 @@
             </div>
           </div>
 
-</div>    
+    
 </div>
+<?php 
+}else{
+  include_once '../accesDenied.php';
+}
+ ?>
