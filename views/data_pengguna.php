@@ -40,11 +40,15 @@ if(isset($user)){
                               <td><?= $mb['password'] ?></td>
                               <td><?= $mb['role'] ?></td>
                               <td>
-                                <form action="controllers/memberController.php" method="post">
+                                <form action="controllers/memberController.php" method="post">  
                                 <a href="index.php?hal=form_pengguna_edit&id=<?= $mb['id'] ?>"  class="btn btn-warning py-2"><i class="fa fa-edit"></i></a>
+                                <?php if (isset($user)) {
+                                  if ($role != 'Staff') {
+                                  ?>
                                 <button class="btn btn-danger py-2" type="submit" name="proses" value="hapus" onclick="confirm('Anda Yakin Ingin Menghapus?')" ><i class="fa fa-trash"></i></button>
                                 <input type="hidden" name="idh" value="<?= $mb['id'] ?>">
                                 </form>
+                                <?php }} ?>
                               </td>
                                   </tr>
                             <?php } ?>

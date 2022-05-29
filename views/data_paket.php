@@ -29,21 +29,35 @@
                           <td class="font-weight-medium"><div class="badge badge-success"><?= $d['lama_penggunaan'] ?></div></td>
                           <td class="font-weight-medium"><div class="badge badge-warning">Rp.<?= number_format($d['harga'],0,',','.') ?></div></td>
                           <td class="font-weight-medium">
+                            <?php if (isset($user)) {
+                              if ($role != 'Pengguna') {
+                              ?>
                           <form action="controllers/internetController.php" method="post">
                           <a href="index.php?hal=form_internet_edit&id=<?= $d['id'] ?>"  class="btn btn-warning "><i class="fa fa-edit"></i></a>
+                          <?php if ($role != 'Staff'){ 
+                           ?>
                           <button class="btn btn-danger" type="submit" name="tombol" value="hapus" onclick="confirm('Anda Yakin Ingin Menghapus?')" ><i class="fa fa-trash"></i></button>
                           <input type="hidden" name="idh" value="<?= $d['id'] ?>">
                           </form>
-                            </td> 
-                          <td><a href="index.php?hal=pembayaran"  class="btn btn-secondary">Beli</a></td>
+                          <?php 
+                          }}else{
+                           ?>
+                          <a href="index.php?hal=pembayaran"  class="btn btn-secondary">Beli</a>
+                          <?php }} ?>
+                          </td> 
                           </tr>
                         <?php } ?>
                       </tbody>
                     </table>
                   </div>
+                  <?php 
+                  if(isset($user)){
+                    if ($role != 'Pengguna' && $role != 'Staff') {
+                    ?>
                   <div class="d-flex justify-content-end">
                   <a href="index.php?hal=form_internet" type="submit" class="btn btn-primary mr-2"><i class="fa fa-plus"></i> Tambah</a>
                   </div>
+                  <?php }} ?>
                 </div>
               </div>
             </div>

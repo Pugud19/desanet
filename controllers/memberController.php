@@ -48,7 +48,7 @@ require_once '../models/member.php';
         // logic login member
         if (!empty($mb)) {
             $_SESSION['member'] = $mb;
-            header('location:index.php?hal=home');
+            header('location:../index.php?hal=home');
         }else {       
             header('location:../gagal_login.php');
         }
